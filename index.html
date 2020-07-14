@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Vue.Js</title>
+</head>
+<body>
+    <div id="app">      <!--Div criando para se connectar com elemento-->
+        <p>{{msg}}</p>         <!--Entre duas chaves, para realizar um baind entre html e o script-->
+        <p>{{verdade ? 'Verdade' : 'Falso'}}</p>
+        <p>{{ frutas [2] + ' e ' + frutas[0] }}</p>
+        <p>Aluno : {{ aluno.nome }}</p>
+        <p>Idade: {{ aluno.idade +' '+ "Anos" }}</p>
+        <p>{{5 + numero}}</p>
+        <p>{{ metodo(2) }}</p>      <!--Passar indice no parametro-->
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!--Primeiro carrega comando, após faz script-->
+
+    <script>
+        new Vue ({          //Criando estancia do vue.. e passando com parametro um objeto
+            
+            el: '#app',     //Mostrar vue seu elemento principal
+            data:{              //Dado em inglês, os dados que aparece no id, aqui para armazenar dados
+                msg: 'Bruno Monte' , //mensagem para mostrar id    //sempre colocar uma virgula, após cada dado
+                verdade: false,     //boolean
+                frutas: ['Pera','Uva','Maca'],      //criar array
+                aluno: { nome: 'Paula', idade: '25'},                           //criar Objeto json
+                numero: 30,
+            },
+            methods: {                      //chamar funçoes dentro de metodos
+                metodo(indice){
+                    return 'Fruta: ' + this.frutas[indice]      //this referencia ao objeto no vue.      
+                }
+            }
+            
+        })
+
+    </script>
+
+    
+</body>
+</html>
